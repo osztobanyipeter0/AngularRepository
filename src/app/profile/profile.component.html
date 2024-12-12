@@ -1,0 +1,27 @@
+<div class="profile-container">
+  <h2>Felhasználói Profil</h2>
+  <div >
+    <h3>Felhasználók</h3>
+    <table>
+      <thead>
+      <tr>
+        <th>Felhasználónév</th>
+        <th>Profil létrehozásának dátuma</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.username }}</td>
+        <td>{{ user.createdAt | date:'yyyy-MM-dd' }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="estimates.length > 0">
+    <h3>Estimates</h3>
+    <ul>
+      <li *ngFor="let estimate of estimates">{{ estimate }}</li>
+    </ul>
+  </div>
+  <button (click)="logout()">Kijelentkezés</button>
+</div>

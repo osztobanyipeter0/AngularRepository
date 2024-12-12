@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="header">
+    <div class="username-display">
+      Üdvözöljük, {{ username }}!
+    </div>
+  </div>
+  <h2>Kezdő Felület - Okosotthon kalkuláció</h2>
+  <form (ngSubmit)="onSubmit()">
+    <label for="isPrepared">Az ingatlan fel van készítve az okosotthon technológiára?</label>
+    <select id="isPrepared" [(ngModel)]="isPrepared" name="isPrepared" required>
+      <option value="" disabled selected>Válasszon...</option>
+      <option value="true">Igen</option>
+      <option value="false">Nem</option>
+    </select>
+
+    <div *ngIf="isPrepared !== ''">
+      <label for="rooms">Szobák száma:</label>
+      <input type="number" id="rooms" [(ngModel)]="rooms" name="rooms" required>
+
+      <label for="windows">Ablakok száma:</label>
+      <input type="number" id="windows" [(ngModel)]="windows" name="windows" required>
+
+      <label for="radiators">Radiátorok száma:</label>
+      <input type="number" id="radiators" [(ngModel)]="radiators" name="radiators" required>
+
+      <label for="lights">Villanyok száma:</label>
+      <input type="number" id="lights" [(ngModel)]="lights" name="lights" required>
+    </div>
+
+    <button type="submit" [disabled]="!isPrepared">Kalkuláció indítása</button>
+  </form>
+</div>

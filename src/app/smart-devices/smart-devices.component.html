@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="header">
+    <div class="username-display">
+      Üdvözöljük, {{ username }}! (Property ID: {{ propertyId }})
+    </div>
+  </div>
+  <h2>Okos Eszközök</h2>
+  <form (ngSubmit)="onSubmit()">
+    <table>
+      <thead>
+      <tr>
+        <th>Eszköz</th>
+        <th>Kiválasztás</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let device of devices">
+        <td>{{ device.name }}</td>
+        <td>
+          <input type="checkbox" (change)="toggleDeviceSelection(device)" [checked]="selectedDevices.includes(device)">
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <button type="submit">Tovább</button>
+  </form>
+</div>
